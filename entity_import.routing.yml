@@ -1,0 +1,31 @@
+entity_import.importer.pages:
+  path: admin/content/importer-pages
+  defaults:
+    _title: 'Importers'
+    _controller: \Drupal\entity_import\Controller\EntityImportController::importerPages
+  requirements:
+    _permission: 'administer entity import'
+
+entity_import.importer.page.import_form:
+  path: /admin/content/entity-importer/{entity_importer}
+  defaults:
+    _form: \Drupal\entity_import\Form\EntityImporterPageImportForm
+    _title_callback: \Drupal\entity_import\Form\EntityImporterPageImportForm::setTitle
+  options:
+    parameters:
+      entity_importer:
+        type: entity:entity_importer
+  requirements:
+    _permission: 'administer entity import'
+
+entity_import.importer.page.action_form:
+  path: /admin/content/entity-importer/{entity_importer}/action
+  defaults:
+    _form: \Drupal\entity_import\Form\EntityImporterPageImportActionForm
+    _title_callback: \Drupal\entity_import\Form\EntityImporterPageImportActionForm::setTitle
+  options:
+    parameters:
+      entity_importer:
+        type: entity:entity_importer
+  requirements:
+    _permission: 'administer entity import'

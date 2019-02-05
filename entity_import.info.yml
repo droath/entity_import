@@ -1,0 +1,7 @@
+type: module
+name: Entity Import
+description: Allow entities to be imported from differnt sources.
+core: 8.x
+package: Other
+dependencies:
+  - drupal:migrate

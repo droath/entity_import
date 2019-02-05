@@ -1,0 +1,13 @@
+services:
+  entity_import.source.manager:
+    class: \Drupal\entity_import\EntityImportSourceManager
+    arguments: [ "@plugin.manager.migrate.source", "@plugin.manager.migration" ]
+
+  entity_import.process.manager:
+    class: Drupal\entity_import\EntityImportProcessManager
+    arguments: [ "@plugin.manager.migration", "@plugin.manager.migrate.process" ]
+
+  entity_import.event_subscribers:
+    class: Drupal\entity_import\Subscriber\EntityImportSubscriber
+    tags:
+      - { name : "event_subscriber" }
